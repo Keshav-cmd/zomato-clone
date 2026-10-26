@@ -1,0 +1,273 @@
+
+/* ===== Global Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #e23744;
+    --dark-red: #b91c2b;
+    --light-red: #fff0f1;
+    --white: #ffffff;
+    --dark: #222222;
+    --gray: #666666;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+/* ===== Header / Navbar ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 8%;
+    background-color: var(--primary-red);
+    color: var(--white);
+    min-height: 80px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+header ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
+}
+
+header ul li a:hover {
+    color: #ffe0e3;
+}
+
+/* ===== Main Hero Section ===== */
+main {
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.15),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #e23744, #b91c2b);
+    color: var(--white);
+}
+
+main img {
+    width: 240px;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 25px;
+    filter: brightness(0) invert(1);
+    animation: fadeIn 0.8s ease;
+}
+
+main h3 {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 700;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    animation: fadeIn 1s ease;
+}
+
+/* ===== Search Input ===== */
+main input {
+    width: 100%;
+    max-width: 580px;
+    padding: 18px 24px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    outline: none;
+    background-color: var(--white);
+    color: var(--dark);
+    font-size: 16px;
+    box-shadow: 0 8px 25px rgba(70, 0, 0, 0.2);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+main input::placeholder {
+    color: #888888;
+}
+
+main input:focus {
+    border-color: #ffb8be;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Search Results ===== */
+#search-results {
+    width: 100%;
+    max-width: 580px;
+    margin-top: 18px;
+    color: var(--white);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#search-results:empty {
+    display: none;
+}
+
+.search-message {
+    padding: 14px 18px;
+    background: rgba(100, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+}
+
+/* ===== Footer ===== */
+footer {
+    padding: 25px 15px;
+    text-align: center;
+    background-color: #8f1521;
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    header ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 22px;
+    }
+
+    header ul li a {
+        font-size: 14px;
+    }
+
+    .logo img {
+        width: 115px;
+    }
+
+    main {
+        min-height: 70vh;
+        padding: 50px 20px;
+    }
+
+    main img {
+        width: 190px;
+    }
+
+    main h3 {
+        margin-bottom: 28px;
+    }
+
+    main input {
+        padding: 16px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    header ul {
+        gap: 14px;
+    }
+
+    header ul li a {
+        font-size: 13px;
+    }
+
+    main h3 {
+        font-size: 27px;
+    }
+}
+
+main {
+    position: relative;
+    min-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background video */
+.bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Content above the video */
+.main-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+/* Optional dark overlay for readability */
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.main-content img,
+.main-content h3,
+.main-content input {
+    position: relative;
+    z-index: 2;
+}
